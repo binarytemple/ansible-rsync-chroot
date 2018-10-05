@@ -25,6 +25,6 @@ chroot --userspec=bryanhuntesl:rsyncusers /home/chroot
 
 ## verifying 
 
-vagrant provision && ssh bryanhuntesl@172.16.149.143
-
-
+```
+vagrant up && ssh -p $(vagrant ssh-config | sed -n '/Port/{s_ __g;s_Port__;p;}') bryanhuntesl@127.0.0.1 
+```

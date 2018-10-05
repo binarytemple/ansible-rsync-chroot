@@ -20,6 +20,6 @@ AcceptEnv LANG LC_*
 Subsystem sftp internal-sftp
 Match Group {{group_name}}
     # ChrootDirectory /home/chroot
-    ChrootDirectory %h 
+    ChrootDirectory /home/chroot
     AllowTcpForwarding no
     X11Forwarding no
