@@ -1,0 +1,25 @@
+HostKey /etc/ssh/ssh_host_rsa_key
+HostKey /etc/ssh/ssh_host_ecdsa_key
+HostKey /etc/ssh/ssh_host_ed25519_key
+SyslogFacility AUTH
+LogLevel DEBUG
+PermitRootLogin yes
+AuthorizedKeysFile /etc/ssh/keys/%u/authorized_keys .ssh/authorized_keys
+StrictModes yes
+RSAAuthentication yes
+PubkeyAuthentication yes
+ChallengeResponseAuthentication no
+GSSAPIAuthentication yes
+GSSAPICleanupCredentials no
+UsePAM yes
+X11Forwarding no
+PrintMotd no
+PrintLastLog yes
+UsePrivilegeSeparation yes
+AcceptEnv LANG LC_*
+Subsystem sftp internal-sftp
+Match Group {{group_name}}
+    # ChrootDirectory /home/chroot
+    ChrootDirectory %h 
+    AllowTcpForwarding no
+    X11Forwarding no
