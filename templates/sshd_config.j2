@@ -3,6 +3,8 @@ HostKey /etc/ssh/ssh_host_ecdsa_key
 HostKey /etc/ssh/ssh_host_ed25519_key
 SyslogFacility AUTH
 LogLevel DEBUG
+# disable DNS lookup - on VM this can cause 30 seconds login delay
+UseDNS no 
 PermitRootLogin yes
 AuthorizedKeysFile /etc/ssh/keys/%u/authorized_keys .ssh/authorized_keys
 StrictModes yes
